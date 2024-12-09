@@ -1,0 +1,33 @@
+class Hero {
+  constructor(name, age, type) {
+    this.name = name; // Atribui os parâmetros passados ao criar a instância
+    this.age = age;
+    this.type = type;
+    this.weapon = ""; // Adiciona um atributo para armazenar a arma
+  }
+
+  attack() {
+    // Define a arma com base no tipo do herói
+    if (this.type === "mago") {
+      this.weapon = "magia";
+    } else if (this.type === "guerreiro") {
+      this.weapon = "espada";
+    } else if (this.type === "monge") {
+      this.weapon = "artes marciais";
+    } else if (this.type === "ninja") {
+      this.weapon = "shuriken";
+    } else {
+      this.weapon = "arma desconhecida"; // Caso o tipo não seja reconhecido
+    }
+  }
+
+  message() {
+    // Garante que o ataque seja calculado antes de exibir a mensagem
+    this.attack();
+    console.log("O " + this.type + " atacou usando " + this.weapon + ".");
+  }
+}
+
+// Cria uma instância da classe Hero
+let heroOne = new Hero("Adam", 26, "mago");
+heroOne.message();
